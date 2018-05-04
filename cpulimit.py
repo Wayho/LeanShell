@@ -121,7 +121,7 @@ class Class_Cpu_Dynamic():
 		print('Class_Cpu_Dynamic::Reset()\t' + self.id)
 
 	############## private ################
-	def __init__(self, strID, throttle=0.5):
+	def __init__(self, strID, throttle=0.7):
 		self.id = strID
 		self.throttle = throttle  # throttle=0.7==30%CPU usage
 
