@@ -9,3 +9,4 @@ psutil>=5.4.3
 mxnet
 gluoncv
 gluonnlp
+numpy
