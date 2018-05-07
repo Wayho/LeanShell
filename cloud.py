@@ -38,6 +38,11 @@ def cmd_ls():
 	OutputShell('ls -l')
 	return True
 
+@engine.define( 'sitepackages' )
+def cmd_ls_sitepackages():
+	OutputShell('ls -l /opt/pyenv/versions/2.7.12/lib/python2.7/site-packages')
+	return True
+
 @engine.define( 'top' )
 def cmd_top():
 	OutputShell('top -b -n 1 -H')
