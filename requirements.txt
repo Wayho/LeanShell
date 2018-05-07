@@ -6,3 +6,6 @@ Flask>=0.10.1,<1.0.0
 Flask-Sockets>=0.1,<1.0
 
 psutil>=5.4.3
+mxnet
+gluoncv
+gluonnlp
