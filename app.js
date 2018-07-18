@@ -10,6 +10,14 @@ var AV = require('leanengine');
 // 加载云函数定义，你可以将云函数拆分到多个文件方便管理，但需要在主文件中加载它们
 require('./cloud');
 
+var config = {
+    wechat:{
+        appID:"wx76cc8ae402a1c613",
+        appSecret:"d9ccfdbc8cb5a75956f97d854fd0a09b",
+        token:"mytest"
+    }
+}
+
 var app = express();
 
 // 设置模板引擎
@@ -34,6 +42,7 @@ app.use(cookieParser());
 app.get('/', function(req, res) {
     //res.render('index', { currentTime: new Date() });
     //return 'This is home page'
+    var Token=config.wechat.token;
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('This is home page');
 });
