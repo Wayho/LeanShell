@@ -2,6 +2,16 @@
 
 var AV = require('leanengine');
 
+var config = {
+    wechat:{
+        appID:"wx76cc8ae402a1c613",
+        appSecret:"d9ccfdbc8cb5a75956f97d854fd0a09b",
+        token:"mytest"
+    }
+};
+
+var token=config.wechat.token;
+
 AV.init({
   appId: process.env.LEANCLOUD_APP_ID,
   appKey: process.env.LEANCLOUD_APP_KEY,
