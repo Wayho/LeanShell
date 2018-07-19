@@ -16,7 +16,9 @@ var config = {
         appSecret:"d9ccfdbc8cb5a75956f97d854fd0a09b",
         token:"mytest"
     }
-}
+};
+var OAuth = require('wechat-oauth');
+var oauth = new OAuth(config.wechat.appID, config.wechat.appSecret);
 
 var app = express();
 
@@ -43,8 +45,31 @@ app.get('/', function(req, res) {
     //res.render('index', { currentTime: new Date() });
     //return 'This is home page'
     var Token=config.wechat.token;
+    var domain = "http://sale.leanapp.cn"
+    var auth_callback_url = domain + "/oauth/callback"
+    var url = oauth.getAuthorizeURL(auth_callback_url, '', 'snsapi_userinfo');
+    console.log(url);
+    // 重定向请求到微信服务器
+    res.redirect(url);
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('This is home page');
+});
+
+app.get('/callback', function(req, res) {
+    //res.render('index', { currentTime: new Date() });
+    //return 'This is home page'
+    var code = req.query.code;
+    oauth.getAccessToken(code, function (err, result) {
+        console.log(result)
+        var accessToken = result.data.access_token;
+        var openid = result.data.openid;
+
+        oauth.getUser(openid, function (err, result) {
+            var userInfo = result;
+            // save or other opration
+            res.json(userInfo)
+        });
+    });
 });
 
 app.use(function(req, res, next) {
