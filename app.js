@@ -98,6 +98,8 @@ app.get('/callback', function(req, res) {
     //res.render('index', { currentTime: new Date() });
     //return 'This is home page'
     console.log('callback');
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end(req.query.echostr);
     var code = req.query.code;
     oauth.getAccessToken(code, function (err, result) {
         console.log(result)
