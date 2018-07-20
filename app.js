@@ -96,11 +96,11 @@ app.get('/oauth', function(req, res) {
     res.redirect(url);
     console.log('oauth redirect end');
     //var api = new OAuth(config.appid, config.appsecret);
-    it('should invalid', function (done) {
-      oauth.getAccessToken('code', function (err, data) {
-        console.log('err:',err);
-          console.log('data:',data);
-      });
+
+    oauth.getAccessToken('code', function (err, data) {
+            console.log('err:',err);
+            console.log('data:',data);
+
     });
 });
 
