@@ -54,18 +54,14 @@ app.get('/echo', function(req, res) {
     console.log(req.method);
     console.log(req.baseUrl);
     console.log(req.path);
-    console.log(req.headers['user-agent']);
     //获取请求头
     console.log(req.get('user-agent'));
     //获取url查询参数
     console.log(req.query);
-    //获取url查询参数id值
-    console.log(req.query.id);
-    //post请求时获取body的参数值
-    console.log(req.body);
-    console.log(req.body.name);
+    //获取url查询参数echostr值
+    console.log(req.query.echostr);
     res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('This is echo page');
+    res.end(req.query.echostr);
 });
 
 app.get('/oauth', function(req, res) {
