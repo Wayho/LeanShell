@@ -22,6 +22,7 @@ router.get('/', function (req, res, next) {
     console.log(url);
     // 重定向请求到微信服务器
     res.redirect(url);
+    console.log('redirect end');
 });
 
 router.get('/callback', function (req, res, next) {
