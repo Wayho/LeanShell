@@ -88,7 +88,7 @@ app.get('/oauth', function(req, res) {
     var domain = "https://ssjk.leanapp.cn"
     var auth_callback_url = domain + "/oauth/callback"
     //var url = oauth.getAuthorizeURL(auth_callback_url, '', 'snsapi_userinfo');
-    var url = oauth.getAuthorizeURL(auth_callback_url, '', 'snsapi_base');
+    var url = oauth.getAuthorizeURLForWebsite(auth_callback_url, '', 'snsapi_base');
     console.log(url);
     // 重定向请求到微信服务器
     res.redirect(url);
