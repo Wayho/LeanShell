@@ -53,6 +53,7 @@ app.get('/echo', function(req, res) {
     //return 'This is home page'
     console.log(req);
     console.log(res);
+    console.log('OK');
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('This is echo page');
 });
