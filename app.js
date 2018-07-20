@@ -12,11 +12,12 @@ require('./cloud');
 
 var config = {
     wechat:{
-        appID:"wx76cc8ae402a1c613",
-        appSecret:"d9ccfdbc8cb5a75956f97d854fd0a09b",
-        token:"mytest"
+        appID:process.env.wechat_appID,
+        appSecret:process.env.wechat_appsecret,
+        token:process.env.wechat_token
     }
 };
+
 var OAuth = require('wechat-oauth');
 var oauth = new OAuth(config.wechat.appID, config.wechat.appSecret);
 
@@ -84,7 +85,7 @@ app.get('/oauth', function(req, res) {
     //res.render('index', { currentTime: new Date() });
     //return 'This is home page'
     var Token=config.wechat.token;
-    var domain = "http://sale.leanapp.cn"
+    var domain = "http://ssjk.leanapp.cn"
     var auth_callback_url = domain + "/oauth/callback"
     var url = oauth.getAuthorizeURL(auth_callback_url, '', 'snsapi_userinfo');
     console.log(url);
