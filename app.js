@@ -108,11 +108,11 @@ app.get('/callback', function(req, res) {
     //res.render('index', { currentTime: new Date() });
     //return 'This is home page'
     console.log('callback');
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end(req.query.echostr);
+    //res.writeHead(200, { 'Content-Type': 'text/plain' });
+    //res.end(req.query.echostr);
     //获取url查询参数
     console.log(req.query);
-    return;
+    //return;
     var code = req.query.code;
     oauth.getAccessToken(code, function (err, result) {
         console.log(result)
@@ -121,6 +121,7 @@ app.get('/callback', function(req, res) {
 
         oauth.getUser(openid, function (err, result) {
             var userInfo = result;
+            console.log(userInfo);
             // save or other opration
             res.json(userInfo)
         });
