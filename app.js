@@ -103,7 +103,7 @@ app.get('/callback', function(req, res) {
     //res.end(req.query.echostr);
     //获取url查询参数
     console.log(req.query);
-    rerurn;
+    return;
     var code = req.query.code;
     oauth.getAccessToken(code, function (err, result) {
         console.log(result)
