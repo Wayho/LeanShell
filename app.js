@@ -7,6 +7,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var AV = require('leanengine');
 
+var expect = require('expect.js');
+
 // 加载云函数定义，你可以将云函数拆分到多个文件方便管理，但需要在主文件中加载它们
 require('./cloud');
 
@@ -93,6 +95,15 @@ app.get('/oauth', function(req, res) {
     // 重定向请求到微信服务器
     res.redirect(url);
     console.log('oauth redirect end');
+    //var api = new OAuth(config.appid, config.appsecret);
+    it('should invalid', function (done) {
+      oauth.getAccessToken('code', function (err, data) {
+        expect(err).to.be.ok();
+        expect(err.name).to.be.equal('WeChatAPIError');
+        expect(err.message).to.contain('invalid code');
+        done();
+      });
+    });
 });
 
 app.get('/callback', function(req, res) {
