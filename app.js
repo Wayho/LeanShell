@@ -51,9 +51,19 @@ app.get('/', function(req, res) {
 app.get('/echo', function(req, res) {
     //res.render('index', { currentTime: new Date() });
     //return 'This is home page'
-    console.log(req);
-    //console.log(res);
-    //console.log('OK');
+    console.log(req.method);
+    console.log(req.baseUrl);
+    console.log(req.path);
+    conlose.log(req.headers['user-agent']);
+    //获取请求头
+    console.log(req.get('user-agent'));
+    //获取url查询参数
+    console.log(req.query);
+    //获取url查询参数id值
+    console.log(req.query.id);
+    //post请求时获取body的参数值
+    console.log(req.body);
+    console.log(req.body.name);
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('This is echo page');
 });
