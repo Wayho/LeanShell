@@ -92,8 +92,6 @@ app.get('/oauth', function(req, res) {
     console.log(url);
     // 重定向请求到微信服务器
     res.redirect(url);
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('This is home page');
 });
 
 app.get('/callback', function(req, res) {
