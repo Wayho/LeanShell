@@ -2,16 +2,6 @@
 
 var AV = require('leanengine');
 
-var config = {
-    wechat:{
-        appID:"wx76cc8ae402a1c613",
-        appSecret:"d9ccfdbc8cb5a75956f97d854fd0a09b",
-        token:"mytest"
-    }
-};
-
-var token=config.wechat.token;
-
 AV.init({
   appId: process.env.LEANCLOUD_APP_ID,
   appKey: process.env.LEANCLOUD_APP_KEY,
@@ -22,6 +12,8 @@ AV.init({
 AV.Cloud.useMasterKey();
 
 var app = require('./app');
+
+console.log('process.env:', process.env);
 
 // 端口一定要从环境变量 `LEANCLOUD_APP_PORT` 中获取。
 // LeanEngine 运行时会分配端口并赋值到该变量。
