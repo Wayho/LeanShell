@@ -70,13 +70,8 @@ app.get('/echo', function(req, res) {
 app.get('/echo2', function(req, res) {
     //res.render('index', { currentTime: new Date() });
     //return 'This is home page'
-    console.log(req.method);
-    console.log(req.baseUrl);
-    console.log(req.path);
-    //获取请求头
-    console.log(req.get('user-agent'));
-    //获取url查询参数
-    console.log(req.query);
+    console.log(req);
+    
     //获取url查询参数echostr值
     console.log(req.query.echostr);
     res.writeHead(200, { 'Content-Type': 'text/plain' });
