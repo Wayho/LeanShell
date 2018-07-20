@@ -86,9 +86,9 @@ app.get('/oauth', function(req, res) {
     //return 'This is home page'
     var Token=config.wechat.token;
     var domain = "https://ssjk.leanapp.cn"
-    var auth_callback_url = domain + "/oauth/callback"
+    var auth_callback_url = domain + "/callback"
     //var url = oauth.getAuthorizeURL(auth_callback_url, '', 'snsapi_userinfo');
-    var url = oauth.getAuthorizeURLForWebsite(auth_callback_url, '', 'snsapi_base');
+    var url = oauth.getAuthorizeURL(auth_callback_url, '', 'snsapi_base');
     console.log(url);
     // 重定向请求到微信服务器
     res.redirect(url);
@@ -99,8 +99,11 @@ app.get('/callback', function(req, res) {
     //res.render('index', { currentTime: new Date() });
     //return 'This is home page'
     console.log('callback');
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end(req.query.echostr);
+    //res.writeHead(200, { 'Content-Type': 'text/plain' });
+    //res.end(req.query.echostr);
+    //获取url查询参数
+    console.log(req.query);
+    rerurn;
     var code = req.query.code;
     oauth.getAccessToken(code, function (err, result) {
         console.log(result)
