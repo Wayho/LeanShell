@@ -97,6 +97,7 @@ app.get('/oauth', function(req, res) {
 app.get('/callback', function(req, res) {
     //res.render('index', { currentTime: new Date() });
     //return 'This is home page'
+    console.log('callback');
     var code = req.query.code;
     oauth.getAccessToken(code, function (err, result) {
         console.log(result)
