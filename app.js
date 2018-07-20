@@ -44,6 +44,22 @@ app.use(cookieParser());
 app.get('/', function(req, res) {
     //res.render('index', { currentTime: new Date() });
     //return 'This is home page'
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('This is home page');
+});
+
+app.get('/echo', function(req, res) {
+    //res.render('index', { currentTime: new Date() });
+    //return 'This is home page'
+    console.log(req);
+    console.log(res);
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('This is echo page');
+});
+
+app.get('/oauth', function(req, res) {
+    //res.render('index', { currentTime: new Date() });
+    //return 'This is home page'
     var Token=config.wechat.token;
     var domain = "http://sale.leanapp.cn"
     var auth_callback_url = domain + "/oauth/callback"
