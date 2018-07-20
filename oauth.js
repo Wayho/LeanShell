@@ -17,7 +17,8 @@ var client = new OAuth(config.wechat.appID, config.wechat.appSecret);
 router.get('/', function (req, res, next) {
     var domain = "https://ssjk.leanapp.cn"
     var auth_callback_url = domain + "/oauth/callback"
-    var url = client.getAuthorizeURL(auth_callback_url, '', 'snsapi_userinfo');
+    //var url = client.getAuthorizeURL(auth_callback_url, '', 'snsapi_userinfo');
+    var url = client.getAuthorizeURL(auth_callback_url, '', 'snsapi_base');
     console.log(url);
     // 重定向请求到微信服务器
     res.redirect(url);
