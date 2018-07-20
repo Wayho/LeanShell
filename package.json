@@ -17,7 +17,8 @@
     "leancloud-storage": "^3.0.0",
     "leanengine": "^3.0.0",
     "procstreams": "^0.3.0", 
-    "wechat-oauth": "1.4.2"
+    "wechat-oauth": "1.4.2",
+    "expect.js": "*",
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
