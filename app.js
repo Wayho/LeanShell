@@ -54,7 +54,7 @@ app.get('/echo', function(req, res) {
     console.log(req.method);
     console.log(req.baseUrl);
     console.log(req.path);
-    conlose.log(req.headers['user-agent']);
+    console.log(req.headers['user-agent']);
     //获取请求头
     console.log(req.get('user-agent'));
     //获取url查询参数
