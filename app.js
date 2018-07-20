@@ -92,6 +92,7 @@ app.get('/oauth', function(req, res) {
     console.log(url);
     // 重定向请求到微信服务器
     res.redirect(url);
+    console.log('oauth redirect end');
 });
 
 app.get('/callback', function(req, res) {
@@ -112,6 +113,7 @@ app.get('/callback', function(req, res) {
             res.json(userInfo)
         });
     });
+    console.log('callback end');
 });
 
 app.use(function(req, res, next) {
