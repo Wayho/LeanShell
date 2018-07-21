@@ -90,13 +90,6 @@ app.get('/oauth', function(req, res) {
     // 重定向请求到微信服务器
     res.redirect(url);
     console.log('oauth redirect end');
-    //var api = new OAuth(config.appid, config.appsecret);
-
-    oauth.getAccessToken('code', function (err, data) {
-            console.log('err:',err);
-            console.log('data:',data);
-
-    });
 });
 
 app.get('/callback', function(req, res) {
