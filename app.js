@@ -121,6 +121,8 @@ app.get('/callback', function(req, res) {
             res.json(userInfo)
         });
     });
+    // 重定向
+    res.redirect("https://ssjk.leanapp.cn");
     console.log('callback end');
 });
 
