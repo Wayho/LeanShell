@@ -118,7 +118,7 @@ app.get('/callback', function(req, res) {
             var userInfo = result;
             console.log(userInfo);
             // save or other opration
-            res.json(userInfo)
+            //res.json(userInfo)
         });
     });
     // 重定向
