@@ -36,9 +36,19 @@ open https://leancloud.cn/dashboard/apionline/index.html
 ## How to use in miniapp of wechat 
 
         var paramsJson = {
-            cmd: "ls -l"
+            paramsJson: {
+                pr_string: "ls -l",
+                pr_int: 123,
+                pr_date: Date.now(),
+                pr_pointer:'5b5b42b4808ca4006fc6e1e4',
+                pr_json:{
+                    pr_string: "type string",
+                    pr_int: 456,
+                    pr_date: Date.now(),
+                }
+            }
         };
-        AV.Cloud.run('shell', paramsJson).then(console.log('run ls'))
+        AV.Cloud.run('test', paramsJson).then(console.log('call cloudfun test ok'))
 
 ## Credits
 
