@@ -33,6 +33,30 @@ def Load_From_File(filename):
 	return text
 
 ###############################################
+#How to use in miniapp of wechat
+#var paramsJson = {
+#        paramsJson: {
+#            pr_string: "ls -l",
+#            pr_int: 123,
+#            pr_date: Date.now(),
+#            pr_pointer:'5b5b42b4808ca4006fc6e1e4',
+#            pr_json:{
+#                pr_string: "type string",
+#                pr_int: 456,
+#                pr_date: Date.now(),
+#            }
+#        }
+#    };
+#    AV.Cloud.run('test', paramsJson).then(console.log('call cloudfun test ok'))
+@engine.define( 'test' )
+def cmd_test(paramsJson):
+	print type(paramsJson)
+	print paramsJson.keys()
+	print paramsJson
+	for k in paramsJson.keys():
+		print k,type(paramsJson.get(k)),paramsJson.get(k)
+	return True
+###############################################
 @engine.define( 'ls' )
 def cmd_ls():
 	OutputShell('ls -l')
