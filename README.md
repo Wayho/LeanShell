@@ -27,7 +27,18 @@ It provide some API, in API, it use <procstreams> library to shell the command, 
 
 ## Installation
 
-* just deploy and open https://leancloud.cn/dashboard/apionline/index.html
+* just deploy 
+
+## How to use
+
+open https://leancloud.cn/dashboard/apionline/index.html
+
+## How to use in miniapp of wechat 
+
+        var paramsJson = {
+            cmd: "ls -l"
+        };
+        AV.Cloud.run('shell', paramsJson).then(console.log('run ls'))
 
 ## Credits
 
