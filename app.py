@@ -1,31 +1,22 @@
 # coding: utf-8
 
-from datetime import datetime
-
-from flask import Flask
-
-from flask_sockets import Sockets
+from flask import Flask, render_template, request
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
 
 app = Flask(__name__)
-sockets = Sockets(app)
+
+english_bot = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.SQLStorageAdapter")
+
+english_bot.set_trainer(ChatterBotCorpusTrainer)
+english_bot.train("chatterbot.corpus.english")
 
 
-@app.route('/')
-def index():
-	return 'index'
+@app.route("/")
+def home():
+    return render_template("index.html")
 
-
-@app.route('/time')
-def time():
-	return str(datetime.now())
-
-@app.route('/heart')
-def heart():
-	return 'Heart'
-
-
-@sockets.route('/echo')
-def echo_socket(ws):
-	while True:
-		message = ws.receive()
-		ws.send(message)
+@app.route("/get")
+def get_bot_response():
+	userText = request.args.get('msg')
+	return str(english_bot.get_response(userText))
