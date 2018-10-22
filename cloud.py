@@ -17,8 +17,8 @@ ENGNIE_RESTARTED = True
 APP_ROOT = os.environ.get('LEANCLOUD_APP_REPO_PATH')
 APP_DOMAIN = os.environ.get('LEANCLOUD_APP_DOMAIN') 
 
-print 'APP_ROOT:',APP_ROOT
-print 'APP_DOMAIN:',APP_DOMAIN
+print( 'APP_ROOT:',APP_ROOT)
+print( 'APP_DOMAIN:',APP_DOMAIN)
 
 ########## Base Functions ##################
 def Save_To_File(filename,text):
@@ -56,7 +56,7 @@ def cmd_cpuinfo():
 @engine.define( 'shell' )
 # 调试 {'cmd':'ls -l' }
 def OutputShell( cmd, **params ):
-	print 'shell:',cmd
+	print( 'shell:',cmd)
 	result = subprocess.Popen(
 		#[ "ping 127.0.0.1" ],
 		#[ "find /usr" ],
@@ -74,14 +74,14 @@ def OutputShell( cmd, **params ):
 			if len( readbuf_msg ) == 0:
 				select_rfds.remove( result.stdout )     #result.stdout需要remove，否则进程不会结束
 			else:
-				print readbuf_msg,
+				print( readbuf_msg,)
 
 		if result.stderr in rfds:
 			readbuf_errmsg = result.stderr.readline()
 			if len( readbuf_errmsg ) == 0:
 				select_rfds.remove( result.stderr )     #result.stderr，否则进程不会结束
 			else:
-				print readbuf_errmsg,
+				print( readbuf_errmsg,)
 	result.wait() # 等待字进程结束( 等待shell命令结束 )
 	#print result.returncode
 	##(stdoutMsg,stderrMsg) = result .communicate()#非阻塞时读法.
