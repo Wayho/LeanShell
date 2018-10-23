@@ -34,6 +34,7 @@ It provide some API, in API, it use <procstreams> library to shell the command, 
 
 
 ## License
-
+* ChatterBot安装,Mongo安装,简单测试
+* https://blog.csdn.net/hgy413/article/details/82496845
 
 
