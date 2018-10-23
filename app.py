@@ -21,5 +21,7 @@ def home():
 
 @app.route("/get")
 def get_bot_response():
-	userText = request.args.get('msg')
-	return str(english_bot.get_response(userText))
+    userText = request.args.get('msg')
+    sRet = english_bot.get_response(userText)
+    print(userText,sRet)
+    return str(sRet)
